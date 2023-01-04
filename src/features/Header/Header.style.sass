@@ -1,0 +1,25 @@
+@use '../../styles/variables'
+@use '../../styles/mixins'
+@use 'sass:map'
+
+header   
+    width: 100%
+    padding: 0 variables.$spacing-3 variables.$spacing-1 variables.$spacing-3
+    background-color: var(--color-cria-orange-light)
+    border-top: var(--spacing-1) solid var(--color-active)
+    .header__content  
+        @include mixins.between        
+        .header__logo
+            display: flex
+            width: 100px
+            .tree
+                max-height: 5rem
+            .name
+                max-height: 5rem
+                @media (max-width: map.get(variables.$grid-breakpoints, lg))
+                    display: none
+
+@media screen and (max-width: 768px)
+    
+
+        

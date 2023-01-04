@@ -1,0 +1,213 @@
+@use '../../../styles/variables'
+@use '../../../styles/mixins'
+@use 'sass:map'
+
+.nav
+    display: flex
+    //selector
+    .selector
+        display: flex
+        position: absolute
+        width: var(--width-selector)
+        height: 3em
+        background-color: var(--color-active)
+        border-radius: 0 0 var(--spacing-1) var(--spacing-1)
+        left: var(--left-selector)
+        top: var(--top-selector)
+        right: var(--right-selector)
+        transition-duration: 0.5s
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55)
+        &::after, &::before
+            content: ''
+            position: absolute
+            top: 0     
+            background-color: var(--color-transparent)
+            box-shadow: 0 -10px var(--color-active)
+            width: 10px
+            height: 20px  
+        &::before
+            left: -10px
+            border-radius: 0 10px 0 0 
+        &::after
+            right: -10px
+            border-radius: 10px 0 0 0
+            
+    //menu options
+    ul
+        display: flex
+        list-style: none
+        margin: 0
+        padding: 0
+        height: 5rem
+        li
+            display: flex
+            align-items: center
+            margin: 0 0px
+            background: variables.$color-transparent
+            height: 100%
+            border-radius: 0 0 variables.$border-radius variables.$border-radius
+            position: relative
+            transition: all 1s easy-in-out 1s
+            a
+                text-decoration: none
+                font-size: 1.6rem
+                font-weight: 600
+                margin: 0.5rem  
+                color: var(--color-black)
+            &.active
+                color: var(--color-white)
+                & a
+                    color: var(--color-white)
+                    &:hover
+                        color: var(--color-gray-400)
+.nav__toggle
+    display: none
+    position: relative
+    top: 0
+    right: 0
+    width: var(--spacing-9)
+    height: var(--spacing-9)
+    background-color: var(--color-active)
+    margin-top: 0.5rem
+    border: none
+    cursor: pointer
+    z-index: 100
+    border-radius: 0.5rem
+    &__line
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 2rem
+        height: 0.2rem
+        background-color: var(--color-white)
+        transform: translate(-50%, -50%) rotate(0deg)
+        transition: all 0.5s ease-in-out
+        &::before, &::after
+            content: ''
+            position: absolute
+            width: 2rem
+            height: 0.2rem
+            background-color: var(--color-white)
+            transition: all 0.5s ease-in-out
+        &::before
+            top: -0.8rem
+        &::after
+            top: 0.8rem
+
+.blog  
+    &:hover
+        a
+            color: var(--color-cria-orange)
+.files
+    &:hover
+        a
+            color: var(--color-cria-blue)
+.portfolio
+    &:hover
+        a
+            color: var(--color-cria-green)
+.training
+    &:hover
+        a
+            color: var(--color-cria-pink)
+.ideia
+    &:hover
+        a
+            color: var(--color-cria-yellow)
+.adm
+    &:hover
+        a
+            color: var(--color-black)
+.profile
+    &:hover
+        a
+            color: var(--color-white)
+
+ 
+
+
+//medias queries
+@media screen and (max-width: 768px)
+    .nav-container
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+    .nav
+        flex-direction: column
+        &__toggle
+            display: block
+        .selector
+            flex-direction: column
+            height: 3rem
+            border-radius: var(--spacing-2) 0 0 var(--spacing-2) 
+            width: 20rem
+            &::after, &::before
+                content: ''
+                position: absolute  
+                background-color: var(--color-transparent)
+                box-shadow: 10px 0 var(--color-active)
+                width: 20px
+                height: 10px  
+                left: unset
+            &::before
+                right: 0
+                top: -10px
+                border-radius: 0 0 10px 0 
+            &::after
+                right: 0
+                bottom: -10px
+                border-radius: 0 10px 0 0
+        ul
+            flex-direction: column
+            height: fit-content         
+            li
+                margin: 0
+                a
+                    //margin: 0
+                    font-size: 2rem
+                    font-weight: 600
+                &.active
+                    color: var(--color-white)
+                    & a
+                        color: var(--color-white)
+                        &:hover
+                            color: var(--color-gray-400)
+                &:hover
+                    a
+                        color: var(--color-white)
+                &.blog
+                    &:hover
+                        a
+                            color: var(--color-cria-orange)
+                &.files
+                    &:hover
+                        a
+                            color: var(--color-cria-blue)
+                &.portfolio
+                    &:hover
+                        a
+                            color: var(--color-cria-green)
+                &.training
+                    &:hover
+                        a
+                            color: var(--color-cria-pink)
+                &.ideia
+                    &:hover
+                        a
+                            color: var(--color-cria-yellow)
+                &.adm
+                    &:hover
+                        a
+                            color: var(--color-black)
+                &.profile
+                    &:hover
+                        a
+                            color: var(--color-white)
+
+
+
+          
+
+
+
+                
